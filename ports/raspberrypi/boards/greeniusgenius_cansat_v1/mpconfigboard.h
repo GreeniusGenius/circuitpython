@@ -53,11 +53,3 @@
 #define DEFAULT_SD_MISO (&pin_GPIO12)
 #define DEFAULT_SD_CARD_DETECT (&pin_GPIO4)
 #define DEFAULT_SD_CARD_INSERTED false
-
-// USB-C Battery Charging and Protection
-#define DEFAULT_BQ2407X_EN1 (&pin_GPIO26) // Adjust EN1 and EN2 once CCx pin voltage sensed
-#define DEFAULT_BQ2407X_EN2 (&pin_GPIO27) 
-#define DEFAULT_BQ298XX_RST (&pin_GPIO28) // Protection IC reset with High
-#define DEFAULT_BQ2407XX_CE (&pin_GPIO24) // Charger Enabled when low
-
-
