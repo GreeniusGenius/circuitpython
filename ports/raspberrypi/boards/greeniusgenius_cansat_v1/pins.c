@@ -57,8 +57,9 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_GP4), MP_ROM_PTR(&pin_GPIO4) },
     { MP_OBJ_NEW_QSTR(MP_QSTR_SD_CARD_DETECT), MP_ROM_PTR(&pin_GPIO4) },
 
-    // Pins
+    // Primary SPI Bus, Chip Select 1
     { MP_ROM_QSTR(MP_QSTR_GP5), MP_ROM_PTR(&pin_GPIO5) },
+    { MP_ROM_QSTR(MP_QSTR_CS1), MP_ROM_PTR(&pin_GPIO5) },
 
     // I2C 1
     { MP_ROM_QSTR(MP_QSTR_GP6), MP_ROM_PTR(&pin_GPIO6) },
@@ -113,10 +114,25 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     // Pins
     { MP_ROM_QSTR(MP_QSTR_GP18), MP_ROM_PTR(&pin_GPIO18) },
     { MP_ROM_QSTR(MP_QSTR_GP19), MP_ROM_PTR(&pin_GPIO19) },
+
+    // Secondary UART RX
     { MP_ROM_QSTR(MP_QSTR_GP20), MP_ROM_PTR(&pin_GPIO20) },
+    { MP_ROM_QSTR(MP_QSTR_RX1), MP_ROM_PTR(&pin_GPIO20) },
+    { MP_ROM_QSTR(MP_QSTR_UART1_RX), MP_ROM_PTR(&pin_GPIO20),
+    
+    // Primary SPI Bus, Chip Select 2
     { MP_ROM_QSTR(MP_QSTR_GP21), MP_ROM_PTR(&pin_GPIO21) },
+    { MP_ROM_QSTR(MP_QSTR_CS2), MP_ROM_PTR(&pin_GPIO21) },
+
+    // Pins
     { MP_ROM_QSTR(MP_QSTR_GP22), MP_ROM_PTR(&pin_GPIO22) },
+
+    // Secondary UART TX
     { MP_ROM_QSTR(MP_QSTR_GP23), MP_ROM_PTR(&pin_GPIO23) },
+    { MP_ROM_QSTR(MP_QSTR_TX1), MP_ROM_PTR(&pin_GPIO23) },
+    { MP_ROM_QSTR(MP_QSTR_UART1_TX), MP_ROM_PTR(&pin_GPIO23),
+
+    // Pins
     { MP_ROM_QSTR(MP_QSTR_GP24), MP_ROM_PTR(&pin_GPIO24) },
     
     // Status LED
