@@ -28,45 +28,45 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
 
     // SD Card Detect Pin
     { MP_ROM_QSTR(MP_QSTR_GP4), MP_ROM_PTR(&pin_GPIO4) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SD_CARD_DETECT), MP_ROM_PTR(&pin_GPIO4) },
+    { MP_ROM_QSTR(MP_QSTR_SD_CARD_DETECT), MP_ROM_PTR(&pin_GPIO4) },
 
     // Primary SPI Bus, Chip Select 1
     { MP_ROM_QSTR(MP_QSTR_GP5), MP_ROM_PTR(&pin_GPIO5) },
     { MP_ROM_QSTR(MP_QSTR_CS1), MP_ROM_PTR(&pin_GPIO5) },
-    { MP_ROM_QSTR(MP_GYROSCOPE_CS), MP_ROM_PTR(&pin_GPIO5) },
-    { MP_ROM_QSTR(MP_GYRO_CS), MP_ROM_PTR(&pin_GPIO5) },
+    { MP_ROM_QSTR(MP_QSTR_GYROSCOPE_CS), MP_ROM_PTR(&pin_GPIO5) },
+    { MP_ROM_QSTR(MP_QSTR_GYRO_CS), MP_ROM_PTR(&pin_GPIO5) },
 
     // I2C 1
     { MP_ROM_QSTR(MP_QSTR_GP6), MP_ROM_PTR(&pin_GPIO6) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SDA1), MP_ROM_PTR(&pin_GPIO6) },
+    { MP_ROM_QSTR(MP_QSTR_SDA1), MP_ROM_PTR(&pin_GPIO6) },
 
     { MP_ROM_QSTR(MP_QSTR_GP7), MP_ROM_PTR(&pin_GPIO7) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SCL1), MP_ROM_PTR(&pin_GPIO7) },
+    { MP_ROM_QSTR(MP_QSTR_SCL1), MP_ROM_PTR(&pin_GPIO7) },
 
     // I2C 0
     { MP_ROM_QSTR(MP_QSTR_GP8), MP_ROM_PTR(&pin_GPIO8) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SDA), MP_ROM_PTR(&pin_GPIO8) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SDA0), MP_ROM_PTR(&pin_GPIO8) },
+    { MP_ROM_QSTR(MP_QSTR_SDA), MP_ROM_PTR(&pin_GPIO8) },
+    { MP_ROM_QSTR(MP_QSTR_SDA0), MP_ROM_PTR(&pin_GPIO8) },
 
     { MP_ROM_QSTR(MP_QSTR_GP9), MP_ROM_PTR(&pin_GPIO9) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SCL), MP_ROM_PTR(&pin_GPIO9) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SCL0), MP_ROM_PTR(&pin_GPIO9) },
+    { MP_ROM_QSTR(MP_QSTR_SCL), MP_ROM_PTR(&pin_GPIO9) },
+    { MP_ROM_QSTR(MP_QSTR_SCL0), MP_ROM_PTR(&pin_GPIO9) },
 
     // Secondary SPI Bus for microSD card
     { MP_ROM_QSTR(MP_QSTR_GP10), MP_ROM_PTR(&pin_GPIO10) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SCK1), MP_ROM_PTR(&pin_GPIO10) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SD_SCK), MP_ROM_PTR(&pin_GPIO10) },
+    { MP_ROM_QSTR(MP_QSTR_SCK1), MP_ROM_PTR(&pin_GPIO10) },
+    { MP_ROM_QSTR(MP_QSTR_SD_SCK), MP_ROM_PTR(&pin_GPIO10) },
 
     { MP_ROM_QSTR(MP_QSTR_GP11), MP_ROM_PTR(&pin_GPIO11) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_MOSI1), MP_ROM_PTR(&pin_GPIO11) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SD_MOSI), MP_ROM_PTR(&pin_GPIO11) },
+    { MP_ROM_QSTR(MP_QSTR_MOSI1), MP_ROM_PTR(&pin_GPIO11) },
+    { MP_ROM_QSTR(MP_QSTR_SD_MOSI), MP_ROM_PTR(&pin_GPIO11) },
 
     { MP_ROM_QSTR(MP_QSTR_GP12), MP_ROM_PTR(&pin_GPIO12) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_MISO1), MP_ROM_PTR(&pin_GPIO12) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SD_MISO), MP_ROM_PTR(&pin_GPIO12) },
+    { MP_ROM_QSTR(MP_QSTR_MISO1), MP_ROM_PTR(&pin_GPIO12) },
+    { MP_ROM_QSTR(MP_QSTR_SD_MISO), MP_ROM_PTR(&pin_GPIO12) },
 
     { MP_ROM_QSTR(MP_QSTR_GP13), MP_ROM_PTR(&pin_GPIO13) },
-    { MP_OBJ_NEW_QSTR(MP_QSTR_SD_CS), MP_ROM_PTR(&pin_GPIO13) },
+    { MP_ROM_QSTR(MP_QSTR_SD_CS), MP_ROM_PTR(&pin_GPIO13) },
 
     // microSD Card Interrupt Pin
     { MP_ROM_QSTR(MP_QSTR_GP14), MP_ROM_PTR(&pin_GPIO14) },
@@ -98,8 +98,8 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     // Secondary UART RX
     { MP_ROM_QSTR(MP_QSTR_GP20), MP_ROM_PTR(&pin_GPIO20) },
     { MP_ROM_QSTR(MP_QSTR_RX1), MP_ROM_PTR(&pin_GPIO20) },
-    { MP_ROM_QSTR(MP_QSTR_UART1_RX), MP_ROM_PTR(&pin_GPIO20),
-    
+    { MP_ROM_QSTR(MP_QSTR_UART1_RX), MP_ROM_PTR(&pin_GPIO20) },
+
     // Primary SPI Bus, Chip Select 2 for RFM95W
     { MP_ROM_QSTR(MP_QSTR_GP21), MP_ROM_PTR(&pin_GPIO21) },
     { MP_ROM_QSTR(MP_QSTR_CS2), MP_ROM_PTR(&pin_GPIO21) },
@@ -115,7 +115,7 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     // Secondary UART TX
     { MP_ROM_QSTR(MP_QSTR_GP23), MP_ROM_PTR(&pin_GPIO23) },
     { MP_ROM_QSTR(MP_QSTR_TX1), MP_ROM_PTR(&pin_GPIO23) },
-    { MP_ROM_QSTR(MP_QSTR_UART1_TX), MP_ROM_PTR(&pin_GPIO23),
+    { MP_ROM_QSTR(MP_QSTR_UART1_TX), MP_ROM_PTR(&pin_GPIO23) },
 
     // Battery Charging Enable / Disable to BQ2407X
     { MP_ROM_QSTR(MP_QSTR_GP24), MP_ROM_PTR(&pin_GPIO24) },
@@ -123,7 +123,7 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_BQ_CHG_DIS), MP_ROM_PTR(&pin_GPIO24) },
     { MP_ROM_QSTR(MP_QSTR_BATTERY_CHARGE_DISABLE), MP_ROM_PTR(&pin_GPIO24) },
     { MP_ROM_QSTR(MP_QSTR_BATT_CHG_DIS), MP_ROM_PTR(&pin_GPIO24) },
-    
+
     // Status LED
     { MP_ROM_QSTR(MP_QSTR_GP25), MP_ROM_PTR(&pin_GPIO25) },
     { MP_ROM_QSTR(MP_QSTR_LED), MP_ROM_PTR(&pin_GPIO25) },
@@ -144,7 +144,7 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_BQ_CHG_EN2), MP_ROM_PTR(&pin_GPIO27) },
     { MP_ROM_QSTR(MP_QSTR_BATTERY_CHARGE_ENABLE2), MP_ROM_PTR(&pin_GPIO27) },
     { MP_ROM_QSTR(MP_QSTR_BATT_CHG_EN2), MP_ROM_PTR(&pin_GPIO27) },
-    
+
     // Battery Protection IC BQ298XX Reset
     { MP_ROM_QSTR(MP_QSTR_GP28), MP_ROM_PTR(&pin_GPIO28) },
     { MP_ROM_QSTR(MP_QSTR_BQ298XX_PROTECTION_RESET), MP_ROM_PTR(&pin_GPIO28) },
@@ -183,7 +183,7 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_GP37), MP_ROM_PTR(&pin_GPIO37) },
     { MP_ROM_QSTR(MP_QSTR_RFM_RST), MP_ROM_PTR(&pin_GPIO37) },
 
-    // Auxilliary LED
+    // Auxiliary LED
     { MP_ROM_QSTR(MP_QSTR_GP38), MP_ROM_PTR(&pin_GPIO38) },
     { MP_ROM_QSTR(MP_QSTR_LED1), MP_ROM_PTR(&pin_GPIO38) },
     { MP_ROM_QSTR(MP_QSTR_LED_AUX), MP_ROM_PTR(&pin_GPIO38) },
@@ -196,6 +196,7 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_BUZZER0), MP_ROM_PTR(&pin_GPIO39) },
 
     // Analog to Digital Converter
+    { MP_ROM_QSTR(MP_QSTR_GP40), MP_ROM_PTR(&pin_GPIO40) },
     { MP_ROM_QSTR(MP_QSTR_GP40), MP_ROM_PTR(&pin_GPIO40) },
     { MP_ROM_QSTR(MP_QSTR_A0), MP_ROM_PTR(&pin_GPIO40) },
     { MP_ROM_QSTR(MP_QSTR_GP40_A0), MP_ROM_PTR(&pin_GPIO40) },
@@ -216,7 +217,7 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_A4), MP_ROM_PTR(&pin_GPIO44) },
     { MP_ROM_QSTR(MP_QSTR_GP44_A4), MP_ROM_PTR(&pin_GPIO44) },
 
-    // Battery Voltage Sensing 
+    // Battery Voltage Sensing
     { MP_ROM_QSTR(MP_QSTR_GP45), MP_ROM_PTR(&pin_GPIO45) },
     { MP_ROM_QSTR(MP_QSTR_A5), MP_ROM_PTR(&pin_GPIO45) },
     { MP_ROM_QSTR(MP_QSTR_GP45_A5), MP_ROM_PTR(&pin_GPIO45) },

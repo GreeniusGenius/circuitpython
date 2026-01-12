@@ -4,10 +4,11 @@ USB_PRODUCT = "CanSat v1"
 USB_MANUFACTURER = "GreeniusGenius"
 
 CHIP_VARIANT = RP2350
-CHIP_PACKAGE = A
+CHIP_PACKAGE = B
 CHIP_FAMILY = rp2
 
-EXTERNAL_FLASH_DEVICES = "W25Q16JV" #Stacked Winbond flash on RP2354B
+
+EXTERNAL_FLASH_DEVICES = "W25Q16JVxQ" #Stacked Winbond flash on RP2354B
 
 #FROZEN_MPY_DIRS += $(TOP)/frozen/Adafruit_CircuitPython_NeoPixel/
 
