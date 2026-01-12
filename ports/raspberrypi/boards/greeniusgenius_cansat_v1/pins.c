@@ -120,9 +120,10 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_RX1), MP_ROM_PTR(&pin_GPIO20) },
     { MP_ROM_QSTR(MP_QSTR_UART1_RX), MP_ROM_PTR(&pin_GPIO20),
     
-    // Primary SPI Bus, Chip Select 2
+    // Primary SPI Bus, Chip Select 2 for RFM95W
     { MP_ROM_QSTR(MP_QSTR_GP21), MP_ROM_PTR(&pin_GPIO21) },
     { MP_ROM_QSTR(MP_QSTR_CS2), MP_ROM_PTR(&pin_GPIO21) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_CS), MP_ROM_PTR(&pin_GPIO21) },
 
     // Pins
     { MP_ROM_QSTR(MP_QSTR_GP22), MP_ROM_PTR(&pin_GPIO22) },
@@ -138,29 +139,87 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     // Status LED
     { MP_ROM_QSTR(MP_QSTR_GP25), MP_ROM_PTR(&pin_GPIO25) },
     { MP_ROM_QSTR(MP_QSTR_LED), MP_ROM_PTR(&pin_GPIO25) },
+    { MP_ROM_QSTR(MP_QSTR_LED0), MP_ROM_PTR(&pin_GPIO25) },
+    { MP_ROM_QSTR(MP_QSTR_LED_STATUS), MP_ROM_PTR(&pin_GPIO25) },
 
     { MP_ROM_QSTR(MP_QSTR_GP26), MP_ROM_PTR(&pin_GPIO26) },
     { MP_ROM_QSTR(MP_QSTR_GP27), MP_ROM_PTR(&pin_GPIO27) },
     { MP_ROM_QSTR(MP_QSTR_GP28), MP_ROM_PTR(&pin_GPIO28) },
     { MP_ROM_QSTR(MP_QSTR_GP29), MP_ROM_PTR(&pin_GPIO29) },
     { MP_ROM_QSTR(MP_QSTR_GP30), MP_ROM_PTR(&pin_GPIO30) },
+
+    // RFM95W LoRaTM Wireless Radio
     { MP_ROM_QSTR(MP_QSTR_GP31), MP_ROM_PTR(&pin_GPIO31) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO5), MP_ROM_PTR(&pin_GPIO31) },
+
     { MP_ROM_QSTR(MP_QSTR_GP32), MP_ROM_PTR(&pin_GPIO32) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO4), MP_ROM_PTR(&pin_GPIO32) },
+
     { MP_ROM_QSTR(MP_QSTR_GP33), MP_ROM_PTR(&pin_GPIO33) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO3), MP_ROM_PTR(&pin_GPIO33) },
+
     { MP_ROM_QSTR(MP_QSTR_GP34), MP_ROM_PTR(&pin_GPIO34) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO2), MP_ROM_PTR(&pin_GPIO34) },
+
     { MP_ROM_QSTR(MP_QSTR_GP35), MP_ROM_PTR(&pin_GPIO35) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO1), MP_ROM_PTR(&pin_GPIO35) },
+
     { MP_ROM_QSTR(MP_QSTR_GP36), MP_ROM_PTR(&pin_GPIO36) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO0), MP_ROM_PTR(&pin_GPIO36) },
+
     { MP_ROM_QSTR(MP_QSTR_GP37), MP_ROM_PTR(&pin_GPIO37) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_RST), MP_ROM_PTR(&pin_GPIO37) },
+
+    // Auxilliary LED
     { MP_ROM_QSTR(MP_QSTR_GP38), MP_ROM_PTR(&pin_GPIO38) },
+    { MP_ROM_QSTR(MP_QSTR_LED1), MP_ROM_PTR(&pin_GPIO38) },
+    { MP_ROM_QSTR(MP_QSTR_LED_AUX), MP_ROM_PTR(&pin_GPIO38) },
+
+    // Piezo Buzzer
     { MP_ROM_QSTR(MP_QSTR_GP39), MP_ROM_PTR(&pin_GPIO39) },
+    { MP_ROM_QSTR(MP_QSTR_BUZZER), MP_ROM_PTR(&pin_GPIO39) },
+    { MP_ROM_QSTR(MP_QSTR_BUZZER0), MP_ROM_PTR(&pin_GPIO39) },
+
+    // Analog to Digital Converter
     { MP_ROM_QSTR(MP_QSTR_GP40), MP_ROM_PTR(&pin_GPIO40) },
+    { MP_ROM_QSTR(MP_QSTR_A0), MP_ROM_PTR(&pin_GPIO40) },
+    { MP_ROM_QSTR(MP_QSTR_GP40_A0), MP_ROM_PTR(&pin_GPIO40) },
+
     { MP_ROM_QSTR(MP_QSTR_GP41), MP_ROM_PTR(&pin_GPIO41) },
+    { MP_ROM_QSTR(MP_QSTR_A1), MP_ROM_PTR(&pin_GPIO41) },
+    { MP_ROM_QSTR(MP_QSTR_GP41_A1), MP_ROM_PTR(&pin_GPIO41) },
+
     { MP_ROM_QSTR(MP_QSTR_GP42), MP_ROM_PTR(&pin_GPIO42) },
+    { MP_ROM_QSTR(MP_QSTR_A2), MP_ROM_PTR(&pin_GPIO42) },
+    { MP_ROM_QSTR(MP_QSTR_GP42_A2), MP_ROM_PTR(&pin_GPIO42) },
+
     { MP_ROM_QSTR(MP_QSTR_GP43), MP_ROM_PTR(&pin_GPIO43) },
+    { MP_ROM_QSTR(MP_QSTR_A3), MP_ROM_PTR(&pin_GPIO43) },
+    { MP_ROM_QSTR(MP_QSTR_GP43_A3), MP_ROM_PTR(&pin_GPIO43) },
+
     { MP_ROM_QSTR(MP_QSTR_GP44), MP_ROM_PTR(&pin_GPIO44) },
+    { MP_ROM_QSTR(MP_QSTR_A4), MP_ROM_PTR(&pin_GPIO44) },
+    { MP_ROM_QSTR(MP_QSTR_GP44_A4), MP_ROM_PTR(&pin_GPIO44) },
+
+    // Battery Voltage Sensing 
     { MP_ROM_QSTR(MP_QSTR_GP45), MP_ROM_PTR(&pin_GPIO45) },
+    { MP_ROM_QSTR(MP_QSTR_A5), MP_ROM_PTR(&pin_GPIO45) },
+    { MP_ROM_QSTR(MP_QSTR_GP45_A5), MP_ROM_PTR(&pin_GPIO45) },
+    { MP_ROM_QSTR(MP_QSTR_VOLTAGE_MONITOR), MP_ROM_PTR(&pin_GPIO45) },
+    { MP_ROM_QSTR(MP_QSTR_BATTERY_VOLTAGE), MP_ROM_PTR(&pin_GPIO45) },
+
+    // USB-C CCx Sensing
     { MP_ROM_QSTR(MP_QSTR_GP46), MP_ROM_PTR(&pin_GPIO46) },
+    { MP_ROM_QSTR(MP_QSTR_A6), MP_ROM_PTR(&pin_GPIO46) },
+    { MP_ROM_QSTR(MP_QSTR_GP44_A6), MP_ROM_PTR(&pin_GPIO46) },
+    { MP_ROM_QSTR(MP_QSTR_CC1), MP_ROM_PTR(&pin_GPIO46) },
+    { MP_ROM_QSTR(MP_QSTR_USB_CC1), MP_ROM_PTR(&pin_GPIO46) },
+
     { MP_ROM_QSTR(MP_QSTR_GP47), MP_ROM_PTR(&pin_GPIO47) },
+    { MP_ROM_QSTR(MP_QSTR_A7), MP_ROM_PTR(&pin_GPIO47) },
+    { MP_ROM_QSTR(MP_QSTR_GP47_A7), MP_ROM_PTR(&pin_GPIO47) },
+    { MP_ROM_QSTR(MP_QSTR_CC2), MP_ROM_PTR(&pin_GPIO47) },
+    { MP_ROM_QSTR(MP_QSTR_USB_CC2), MP_ROM_PTR(&pin_GPIO47) },
 
 
 
@@ -168,6 +227,16 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
 
 
     // pin examples
+//RFM
+        { MP_ROM_QSTR(MP_QSTR_RFM_CS), MP_ROM_PTR(&pin_GPIO16) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_RST), MP_ROM_PTR(&pin_GPIO17) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO5), MP_ROM_PTR(&pin_GPIO18) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO3), MP_ROM_PTR(&pin_GPIO19) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO4), MP_ROM_PTR(&pin_GPIO20) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO0), MP_ROM_PTR(&pin_GPIO21) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO1), MP_ROM_PTR(&pin_GPIO22) },
+    { MP_ROM_QSTR(MP_QSTR_RFM_IO2), MP_ROM_PTR(&pin_GPIO23) },
+
         // Primary SPI
     { MP_ROM_QSTR(MP_QSTR_LED), MP_ROM_PTR(&pin_GPIO6) },
     { MP_ROM_QSTR(MP_QSTR_D13), MP_ROM_PTR(&pin_GPIO6) },
