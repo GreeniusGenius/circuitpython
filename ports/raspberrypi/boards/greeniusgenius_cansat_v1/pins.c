@@ -60,6 +60,8 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     // Primary SPI Bus, Chip Select 1
     { MP_ROM_QSTR(MP_QSTR_GP5), MP_ROM_PTR(&pin_GPIO5) },
     { MP_ROM_QSTR(MP_QSTR_CS1), MP_ROM_PTR(&pin_GPIO5) },
+    { MP_ROM_QSTR(MP_GYROSCOPE_CS), MP_ROM_PTR(&pin_GPIO5) },
+    { MP_ROM_QSTR(MP_GYRO_CS), MP_ROM_PTR(&pin_GPIO5) },
 
     // I2C 1
     { MP_ROM_QSTR(MP_QSTR_GP6), MP_ROM_PTR(&pin_GPIO6) },
@@ -130,9 +132,10 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_CS2), MP_ROM_PTR(&pin_GPIO21) },
     { MP_ROM_QSTR(MP_QSTR_RFM_CS), MP_ROM_PTR(&pin_GPIO21) },
 
-    // Pins
+    // Battery Charging Status from BQ2407X
     { MP_ROM_QSTR(MP_QSTR_GP22), MP_ROM_PTR(&pin_GPIO22) },
     { MP_ROM_QSTR(MP_QSTR_BQ2407X_CHARGE_STATUS), MP_ROM_PTR(&pin_GPIO22) },
+    { MP_ROM_QSTR(MP_QSTR_BQ_CHG_STAT), MP_ROM_PTR(&pin_GPIO22) },
     { MP_ROM_QSTR(MP_QSTR_BATTERY_CHARGE_STATUS), MP_ROM_PTR(&pin_GPIO22) },
     { MP_ROM_QSTR(MP_QSTR_BATT_CHG_STAT), MP_ROM_PTR(&pin_GPIO22) },
 
@@ -141,8 +144,12 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_TX1), MP_ROM_PTR(&pin_GPIO23) },
     { MP_ROM_QSTR(MP_QSTR_UART1_TX), MP_ROM_PTR(&pin_GPIO23),
 
-    // Pins
+    // Battery Charging Enable / Disable to BQ2407X
     { MP_ROM_QSTR(MP_QSTR_GP24), MP_ROM_PTR(&pin_GPIO24) },
+    { MP_ROM_QSTR(MP_QSTR_BQ2407X_CHARGE_DISABLE), MP_ROM_PTR(&pin_GPIO24) },
+    { MP_ROM_QSTR(MP_QSTR_BQ_CHG_DIS), MP_ROM_PTR(&pin_GPIO24) },
+    { MP_ROM_QSTR(MP_QSTR_BATTERY_CHARGE_DISABLE), MP_ROM_PTR(&pin_GPIO24) },
+    { MP_ROM_QSTR(MP_QSTR_BATT_CHG_DIS), MP_ROM_PTR(&pin_GPIO24) },
     
     // Status LED
     { MP_ROM_QSTR(MP_QSTR_GP25), MP_ROM_PTR(&pin_GPIO25) },
@@ -152,12 +159,34 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_LED_G), MP_ROM_PTR(&pin_GPIO25) },
     { MP_ROM_QSTR(MP_QSTR_LED_GREEN), MP_ROM_PTR(&pin_GPIO25) },
 
-    //Pins
+    // Battery Charging Speed to BQ2407X
     { MP_ROM_QSTR(MP_QSTR_GP26), MP_ROM_PTR(&pin_GPIO26) },
+    { MP_ROM_QSTR(MP_QSTR_BQ2407X_CHARGE_ENABLE1), MP_ROM_PTR(&pin_GPIO26) },
+    { MP_ROM_QSTR(MP_QSTR_BQ_CHG_EN1), MP_ROM_PTR(&pin_GPIO26) },
+    { MP_ROM_QSTR(MP_QSTR_BATTERY_CHARGE_ENABLE1), MP_ROM_PTR(&pin_GPIO26) },
+    { MP_ROM_QSTR(MP_QSTR_BATT_CHG_EN1), MP_ROM_PTR(&pin_GPIO26) },
+
     { MP_ROM_QSTR(MP_QSTR_GP27), MP_ROM_PTR(&pin_GPIO27) },
+    { MP_ROM_QSTR(MP_QSTR_BQ2407X_CHARGE_ENABLE2), MP_ROM_PTR(&pin_GPIO27) },
+    { MP_ROM_QSTR(MP_QSTR_BQ_CHG_EN2), MP_ROM_PTR(&pin_GPIO27) },
+    { MP_ROM_QSTR(MP_QSTR_BATTERY_CHARGE_ENABLE2), MP_ROM_PTR(&pin_GPIO27) },
+    { MP_ROM_QSTR(MP_QSTR_BATT_CHG_EN2), MP_ROM_PTR(&pin_GPIO27) },
+    
+    // Battery Protection IC BQ298XX Reset
     { MP_ROM_QSTR(MP_QSTR_GP28), MP_ROM_PTR(&pin_GPIO28) },
+    { MP_ROM_QSTR(MP_QSTR_BQ298XX_PROTECTION_RESET), MP_ROM_PTR(&pin_GPIO28) },
+    { MP_ROM_QSTR(MP_QSTR_BQ_PROT_RST), MP_ROM_PTR(&pin_GPIO28) },
+    { MP_ROM_QSTR(MP_QSTR_BATTERY_PROTECTION_RESET), MP_ROM_PTR(&pin_GPIO28) },
+    { MP_ROM_QSTR(MP_QSTR_BATT_PROT_RST), MP_ROM_PTR(&pin_GPIO28) },
+
+    // ICM42688 Interrupt Pins
     { MP_ROM_QSTR(MP_QSTR_GP29), MP_ROM_PTR(&pin_GPIO29) },
+    { MP_ROM_QSTR(MP_QSTR_GYRO_INT1), MP_ROM_PTR(&pin_GPIO29) },
+    { MP_ROM_QSTR(MP_QSTR_GYROSCOPE_INTERRUPT1), MP_ROM_PTR(&pin_GPIO29) },
+
     { MP_ROM_QSTR(MP_QSTR_GP30), MP_ROM_PTR(&pin_GPIO30) },
+    { MP_ROM_QSTR(MP_QSTR_GYRO_INT2), MP_ROM_PTR(&pin_GPIO30) },
+    { MP_ROM_QSTR(MP_QSTR_GYROSCOPE_INTERRUPT2), MP_ROM_PTR(&pin_GPIO30) },
 
     // RFM95W LoRaTM Wireless Radio
     { MP_ROM_QSTR(MP_QSTR_GP31), MP_ROM_PTR(&pin_GPIO31) },
@@ -188,6 +217,8 @@ static const mp_rom_map_elem_t board_module_globals_table[] = {
 
     // Piezo Buzzer
     { MP_ROM_QSTR(MP_QSTR_GP39), MP_ROM_PTR(&pin_GPIO39) },
+    { MP_ROM_QSTR(MP_QSTR_BUZZ), MP_ROM_PTR(&pin_GPIO39) },
+    { MP_ROM_QSTR(MP_QSTR_BUZZ0), MP_ROM_PTR(&pin_GPIO39) },
     { MP_ROM_QSTR(MP_QSTR_BUZZER), MP_ROM_PTR(&pin_GPIO39) },
     { MP_ROM_QSTR(MP_QSTR_BUZZER0), MP_ROM_PTR(&pin_GPIO39) },
 
